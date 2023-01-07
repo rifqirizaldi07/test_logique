@@ -15,7 +15,9 @@ code {
 
 /* home screen */
 .card-screen {
-  border-radius: 18px!important;
+  border-radius: 10px!important;
+  min-height: 280px;
+  padding: 15px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)!important;
   background: linear-gradient(153deg, #712bda, #a45deb 100%)!important;
 }
@@ -40,6 +42,7 @@ code {
 
 .homepageBg {
   background-color: #f8fafc;
+  min-height: 600px;
 }
 
 .card-music {
