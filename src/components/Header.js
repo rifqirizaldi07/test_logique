@@ -6,10 +6,10 @@ const Header = () => {
     <div>
       <Navbar expand="lg" variant="light" className="navBg">
         <Container fluid className="px-4">
-          <Navbar.Brand href="/" className="text-white">Music Kito</Navbar.Brand>
+          <Navbar.Brand href="/music" className="text-white">Music Kito</Navbar.Brand>
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text className="text-white">
-              Guest
+              Guest : <a href="/" className="text-white">Logout</a>
             </Navbar.Text>
           </Navbar.Collapse>
         </Container>

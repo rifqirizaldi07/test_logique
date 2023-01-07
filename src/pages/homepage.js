@@ -12,8 +12,7 @@ const Homepage = () => {
     const [loading, setLoading] = useState(true)
     const [param, setParam] = useState({
         term: "",
-        limit: 20
-
+        limit: 25
     })
 
     const [currentParam, setCurrentParam] = useState({
@@ -35,8 +34,6 @@ const Homepage = () => {
         return () => setLoading(false)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loading])
-
-    console.log(music)
 
     return (
         <div className="homepageBg">
