@@ -47,8 +47,14 @@ code {
 
 .card-music {
   border-radius: 10px;
+  min-height: 150px;
+  cursor: pointer;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   background-color: #fff;
+}
+
+.card-music:hover {
+  border: 1px solid #a45deb!important;
 }
 
 .artis-name {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux";
 import { Alert, Button, Col, Form, Row } from "react-bootstrap";
+import { BiSearchAlt } from "react-icons/bi"
 import { musicActions } from "../store/music.slice";
 import MusicList from "../components/MusicList";
 import Loader from "../components/Loader";
@@ -59,14 +60,14 @@ const Homepage = () => {
                         </Form.Select>
                     </Form.Group >
                     <Form.Group className="col-md-2 mb-2 mt-4">
-                    <Button type="submit" className=" col-md-6 text-white rounded navBg">Search</Button>
+                    <Button type="submit" className=" col-md-6 text-white rounded navBg">Search <BiSearchAlt/></Button>
                     </Form.Group>
                 </Form>
                 <div className="mt-4 mb-5">
                     {
                         music.loading ? <Loader /> :
                             music.error ? <Alert variant="danger">{music.data.message}</Alert> :
-                                isEmpty(music.data.results) ? <Alert variant="warning" className="h-100">Data Not Found, Please Search For Your Music First</Alert> :
+                                isEmpty(music.data.results) ? <Alert variant="warning" className="h-100">Please Search For Your Music First</Alert> :
                                     (
                                         <>
                                             <Row>
