@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux";
-import { Alert, Col, Collapse, Form, Row } from "react-bootstrap";
+import { Alert, Button, Col, Form, Row } from "react-bootstrap";
+import { BiSearchAlt } from "react-icons/bi"
 import { musicActions } from "../store/music.slice";
 import MusicList from "../components/MusicList";
 import Loader from "../components/Loader";
@@ -12,7 +13,7 @@ const Homepage = () => {
     const [loading, setLoading] = useState(true)
     const [param, setParam] = useState({
         term: "",
-        limit: 25
+        limit: "10"
     })
 
     const [currentParam, setCurrentParam] = useState({
@@ -38,24 +39,35 @@ const Homepage = () => {
     return (
         <div className="homepageBg">
             <div className="container-fluid">
-                <Collapse>
-                <Form className="d-flex justify-content-center" onSubmit={onSubmitFilter}>
+                <Form className="d-flex justify-content-center row" onSubmit={onSubmitFilter}>
                     <Form.Group className="col-md-2 mb-2 mt-4 ">
                         <Form.Control
                             type="text"
                             placeholder="Search Music"
-                            className="input-filter"
+                            className="rounded"
                             value={param.term}
                             onChange={e => onChangeFilter("term", e.target.value)}
                         />
                     </Form.Group>
+                    <Form.Group className="col-md-2 mb-2 mt-4">
+                        <Form.Select value={param.limit}
+                            onChange={e => onChangeFilter("limit", e.target.value)}>
+                            <option>Limit Item</option>
+                            <option value="15">15</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </Form.Select>
+                    </Form.Group >
+                    <Form.Group className="col-md-2 mb-2 mt-4">
+                    <Button type="submit" className=" col-md-6 text-white rounded navBg">Search <BiSearchAlt/></Button>
+                    </Form.Group>
                 </Form>
-                </Collapse>
                 <div className="mt-4 mb-5">
                     {
                         music.loading ? <Loader /> :
                             music.error ? <Alert variant="danger">{music.data.message}</Alert> :
-                                isEmpty(music.data.results) ? <Alert variant="warning" className="h-100">Data Not Found, Please Search For Your Music First</Alert> :
+                                isEmpty(music.data.results) ? <Alert variant="warning" className="h-100">Please Search For Your Music First</Alert> :
                                     (
                                         <>
                                             <Row>
@@ -70,7 +82,7 @@ const Homepage = () => {
                                             </Row>
                                         </>
                                     )
-                    }
+                    }   
                 </div>
             </div>
         </div>
